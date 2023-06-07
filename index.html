@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Abdellatif Osama">
+    <title>Hangman</title>
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon.png">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel=stylesheet href=css/bootstrap.min.css>
+    <link rel=stylesheet href=css/style.css>
+</head>
+
+<body>
+    <main class="container">
+        <div class="row justify-content-between align-items-center mb-2 border-bottom border-4 border-light">
+            <div class="col-md-6">
+                <div>
+                    <h1 class="text-success text-sm-center text-md-start">Hangman</h1>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <h4>
+                        Word From:
+                        <span id="word-from" class="fw-semibold text-danger"></span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="container my-4 px-0">
+            <div class="row justify-content-center" id="letter-guess-container"></div>
+        </div>
+        <div class="row bg-light px-0">
+            <div class="col-md-6 mb-sm-4 mb-lg-0">
+                <div class="d-flex justify-content-center" style="width: 100%; height: 400px">
+                    <div class="hang-man-container">
+                        <div class="hang-container">
+                            <div class="" id="hang"></div>
+                        </div>
+                        <div class="man-container">
+                            <div class="man">
+                                <div id="man-head">
+                                    <div class="man-head-inner"></div>
+                                </div>
+                                <div id="man-main-body">
+                                    <div id="man-hand"></div>
+                                    <div id="man-leg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="letters-container py-4" id="letters">
+                    <div class="d-flex justify-content-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- failed modal -->
+    <button id="failed-modal-open-btn" hidden type="button" class="d-none btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop1"></button>
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="bg-danger d-flex">
+                    <div class="w-100 d-flex justify-content-center align-items-center">
+                        <i class="fa-regular fa-circle-xmark fa-5x text-light my-4"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p class="game-over text-danger">Game Over!</p>
+                    </div>
+                    <div>
+                        <p class="word-is-p">
+                            The Word Is <span class="text-danger" id="word-is"></span>
+                        </p>
+                    </div>
+                    <div class="text-center my-3">
+                        <button type="button" class="btn btn-outline-success" onclick="PageReload()">
+                            Play Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Success Modal -->
+    <button id="success-modal-open-btn" hidden type="button" class="d-none btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"></button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="bg-success d-flex">
+                    <div class="w-100 d-flex justify-content-center align-items-center">
+                        <i class="fa-regular fa-circle-check fa-5x text-light my-4"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p class="game-over text-success">Congratulations</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="well-done fw-semibold">Well Done</p>
+                    </div>
+                    <div class="text-center my-3">
+                        <button type="button" class="btn btn-outline-success" onclick="PageReload()">
+                            Play Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

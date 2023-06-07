@@ -1,0 +1,182 @@
+:root {
+  --hang-body-color: #000;
+  --man-body-color: #000;
+  --hang-width: 5px;
+  --man-body-width: 5px;
+  --main-letters-color: #198754;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hang-man-container {
+  position: relative;
+  width: 280px;
+}
+.hang-container {
+  position: absolute;
+}
+.man-container {
+  position: absolute;
+  top: 90px;
+  left: 108px;
+}
+#hang {
+  width: var(--hang-width);
+  height: 360px;
+  background-color: var(--hang-body-color);
+  position: relative;
+  margin: 20px 50px;
+  display: none;
+}
+.hang-after::after {
+  content: "";
+  width: 80px;
+  height: var(--hang-width);
+  background-color: var(--hang-body-color);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.hang-before::before {
+  content: "";
+  width: 160px;
+  height: 50px;
+  border-top: solid var(--hang-width) var(--hang-body-color);
+  border-right: solid var(--hang-width) var(--hang-body-color);
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  transform: translateX(0%);
+}
+.man {
+  position: relative;
+  width: 200px;
+}
+#man-head {
+  width: 80px;
+  height: 80px;
+  border: dashed var(--man-body-width) var(--man-body-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.man-head-inner {
+  width: 65px;
+  height: 65px;
+  border: solid var(--man-body-width) var(--man-body-color);
+  border-radius: 50%;
+}
+#man-main-body {
+  width: var(--man-body-width);
+  height: 150px;
+  background-color: var(--man-body-color);
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  display: none;
+}
+#man-hand {
+  width: var(--man-body-width);
+  height: 75px;
+  position: relative;
+  display: none;
+}
+#man-hand::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  height: 70px;
+  transform: rotate(60deg) translateY(-50%);
+  width: var(--man-body-width);
+  background-color: var(--man-body-color);
+}
+#man-hand::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  height: 70px;
+  width: var(--man-body-width);
+  transform: rotate(120deg) translateY(50%);
+  background-color: var(--man-body-color);
+}
+#man-leg {
+  width: var(--man-body-width);
+  height: 75px;
+  position: relative;
+  display: none;
+}
+#man-leg::after {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  height: 70px;
+  transform: rotate(120deg) translateY(-50%);
+  width: var(--man-body-width);
+  background-color: var(--man-body-color);
+}
+#man-leg::before {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  height: 70px;
+  width: var(--man-body-width);
+  transform: rotate(60deg) translateY(50%);
+  background-color: var(--man-body-color);
+}
+.letters-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.letter-box {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  cursor: pointer;
+  flex: auto;
+  margin-bottom: 14px;
+  transition: all 0.5s;
+}
+#letter-guess-container {
+  background-color: #f8f8f8;
+  padding: 8px;
+}
+.word-char {
+  width: 60px;
+  height: 60px;
+  border-bottom: solid 4px rgba(0, 0, 0, 0.6);
+  background-color: #fff;
+  color: var(--main-letters-color);
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  align-items: center;
+  font-weight: 700;
+  font-size: 32px;
+}
+.clicked {
+  background-color: #d4d2d6 !important;
+  pointer-events: none;
+}
+.game-over,
+.word-is-p {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+.word-is-p,
+.well-done {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.7);
+}
